@@ -1,0 +1,37 @@
+<head>
+  <title>twitter</title>
+</head>
+
+<body>
+  {{ > tweets }}
+</body>
+
+
+<template name="tweets">
+  <div id="tweets"></div>
+  <div id="pager"></div>
+
+  <script type="text/x-kendo-tmpl" id="tweet">
+    <div class="tweet" data-twitter-id="${id}">
+      <ul>
+        <li>
+          <div class="user">
+            <a href="http://twitter.com/${user.screen_name}" aria-label="${user.name} (screen name: ${user.screen_name})" data-scribe="element:user_link">
+              <img alt="" src="${user.profile_image_url}" data-scribe="element:avatar">
+              <span>
+                <span data-scribe="element:name">${user.name}</span>
+              </span>
+              <span data-scribe="element:screen_name">@${user.screen_name}</span>
+            </a>
+          </div>
+          <p class="tweet">${text}</p>
+          <p class="timePosted">Posted <a title="#= moment(created_at).format('dddd, MMMM Do YYYY, h:mm:ss a') #">#= moment(created_at).fromNow() #</a></p>
+          <p class="interact">${place.full_name}</p>
+        </li>
+      </ul>
+    </div>
+  </script>
+
+
+</template>
+
