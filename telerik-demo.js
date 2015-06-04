@@ -22,7 +22,7 @@ if (Meteor.isClient) {
 
     this.autorun(function() {
       var current_values = dataSource.data();
-      var updated_values = Tweets.find().fetch();
+      var updated_values = Tweets.find({}, {sort: {timestamp_ms: -1}}).fetch();
 
 
       var current_ids = _.map(current_values, function(x) { return x.id; });
@@ -81,10 +81,10 @@ if (Meteor.isServer) {
   Meteor.startup(function () {
 
   var t = new TwitMaker({
-    consumer_key:          'nDByjFgtOHtVsEcMBxEhZFBzu'
-    , consumer_secret:     'IaomxGS0sTZIiXO7qCfQa4u7WXr38Gzn1tmxsawjD7Rb4dBVbC'
-    , access_token:        '245393978-I3LOK6O3YMSbdO8PF52lsZC30phoxUcymieSsJf8'
-    , access_token_secret: 'mlyeBIvNtrHB3F63msF6CHsa1UMqfTbv1Ft1XRyH4FUjG'
+    consumer_key:          '...'
+    , consumer_secret:     '...'
+    , access_token:        '...'
+    , access_token_secret: '...'
   })
 
   // var italy = ['6.5711455345', '36.6383507886', '18.6658782959', '47.0952051132'];
