@@ -67,7 +67,7 @@ if (Meteor.isClient) {
   var animationListener = function(event){
     if (event.animationName == "fade-in") {
       console.log("remove class fade-in from", event.target);
-      event.target.classList.add('fade-in');
+      event.target.classList.remove('fade-in');
     }
   }
 
