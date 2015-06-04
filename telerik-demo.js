@@ -67,7 +67,7 @@ if (Meteor.isClient) {
   var animationListener = function(event){
     if (event.animationName == "fade-in") {
       console.log("remove class fade-in from", event.target);
-      event.target.classList.remove('fade-in');
+      // event.target.classList.remove('fade-in');
     }
   }
 
@@ -81,10 +81,10 @@ if (Meteor.isServer) {
   Meteor.startup(function () {
 
   var t = new TwitMaker({
-    consumer_key:     'nDByjFgtOHtVsEcMBxEhZFBzu'
-    , consumer_secret:    'IaomxGS0sTZIiXO7qCfQa4u7WXr38Gzn1tmxsawjD7Rb4dBVbC'
-    , access_token:     '245393978-I3LOK6O3YMSbdO8PF52lsZC30phoxUcymieSsJf8'
-    , access_token_secret:  'mlyeBIvNtrHB3F63msF6CHsa1UMqfTbv1Ft1XRyH4FUjG'
+    consumer_key:          'nDByjFgtOHtVsEcMBxEhZFBzu'
+    , consumer_secret:     'IaomxGS0sTZIiXO7qCfQa4u7WXr38Gzn1tmxsawjD7Rb4dBVbC'
+    , access_token:        '245393978-I3LOK6O3YMSbdO8PF52lsZC30phoxUcymieSsJf8'
+    , access_token_secret: 'mlyeBIvNtrHB3F63msF6CHsa1UMqfTbv1Ft1XRyH4FUjG'
   })
 
   // var italy = ['6.5711455345', '36.6383507886', '18.6658782959', '47.0952051132'];
@@ -98,7 +98,7 @@ if (Meteor.isServer) {
   }));
 
   Meteor.publish('latest_tweets', function() {
-    return Tweets.find({}, {sort: {created_at: -1}, limit: 30});
+    return Tweets.find({}, {sort: {timestamp_ms: -1}, limit: 30});
   })
 
 
