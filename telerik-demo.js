@@ -81,10 +81,10 @@ if (Meteor.isServer) {
   Meteor.startup(function () {
 
   var t = new TwitMaker({
-    consumer_key:          '...'
-    , consumer_secret:     '...'
-    , access_token:        '...'
-    , access_token_secret: '...'
+    consumer_key:        Meteor.settings.consumer_key,
+    consumer_secret:     Meteor.settings.consumer_secret,
+    access_token:        Meteor.settings.access_token,
+    access_token_secret: Meteor.settings.access_token_secret
   })
 
   // var italy = ['6.5711455345', '36.6383507886', '18.6658782959', '47.0952051132'];
