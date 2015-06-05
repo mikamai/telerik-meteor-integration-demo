@@ -6,6 +6,7 @@ if (Meteor.isClient) {
   })
 
   Template.tweets.rendered = function() {
+    GAnalytics.pageview();
 
     var dataSource = new kendo.data.DataSource({
       pageSize: 3
